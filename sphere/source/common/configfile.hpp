@@ -5,6 +5,9 @@
 #endif
 #include <map>
 #include <string>
+#include <cstring>
+#include <memory>
+#include <cstdio>
 #include "DefaultFileSystem.hpp"
 class CConfigFile
 {

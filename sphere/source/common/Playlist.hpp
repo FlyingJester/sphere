@@ -6,6 +6,8 @@
 #include "../common/DefaultFileSystem.hpp"
 #include <string>
 #include <vector>
+#include <memory>
+#include <cstdio>
 class CPlaylist
 {
 

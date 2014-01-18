@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "../common/IFileSystem.hpp"
 #include "../common/types.h"
+#include <cstring>
 class CPackageFileSystem : public IFileSystem
 {
 public:
