@@ -104,15 +104,15 @@ sMap::ClearEntityList()
 
 #define STRUCT_NAME LAYER_HEADER
 #define STRUCT_BODY                             \
-  word    width;                                \
-  word    height;                               \
-  word    flags;                                \
+  word    width : 16;                           \
+  word    height : 16;                          \
+  word    flags : 16;                           \
   float32 parallax_x;                           \
   float32 parallax_y;                           \
   float32 scrolling_x;                          \
   float32 scrolling_y;                          \
-  dword   num_segments;                         \
-  byte    reflective;                           \
+  dword   num_segments : 32;                    \
+  byte    reflective : 8;                       \
   byte    reserved[3];
 #include "packed_struct.h"
 
@@ -141,7 +141,6 @@ ASSERT_STRUCT_SIZE(MAP_HEADER,    256)
 ASSERT_STRUCT_SIZE(LAYER_HEADER,  30)
 ASSERT_STRUCT_SIZE(ENTITY_HEADER, 16)
 ASSERT_STRUCT_SIZE(ZONE_HEADER,   16)
-
 ////////////////////////////////////////////////////////////////////////////////
 inline byte ReadMapByte(IFile* file)
 {
@@ -559,7 +558,7 @@ sMap::Load(const char* filename, IFileSystem& fs)
         if ( m_TilesetFile != m_LastTilesetFile)
         {
             m_LastTilesetFile = m_TilesetFile;
-			
+
             m_Tileset.Clear();
 
             char tileset_path[/*MAX_PATH*/ 4096 + 4096] = {0};
