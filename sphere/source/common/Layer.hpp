@@ -3,6 +3,7 @@
 #include <string>
 #include "types.h"
 #include "ObstructionMap.hpp"
+#include <cstring>
 class sLayer
 {
 public:
