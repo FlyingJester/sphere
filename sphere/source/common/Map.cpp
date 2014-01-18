@@ -1139,14 +1139,14 @@ sMap::SetTileSize(int width, int height, int method, void (*callback)(int tile, 
 #define STRUCT_NAME V2MAP_HEADER
 #define STRUCT_BODY                             \
   byte signature[6];                            \
-  dword empty;                                  \
+  dword empty : 32;                             \
   byte  vsp_name[60];                           \
   byte  music_name[60];                         \
   byte  renderstring[20];                       \
-  word  x_start;                                \
-  word  y_start;                                \
+  word  x_start : 16;                           \
+  word  y_start : 16;                           \
   byte  reserved[51];                           \
-  byte  num_layers;
+  byte  num_layers : 8;
 #include "packed_struct.h"
 
 #define STRUCT_NAME V2MAP_LAYERINFO
