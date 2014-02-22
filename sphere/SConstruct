@@ -70,7 +70,8 @@ class Compiler:
                 env.Append(CPPPATH = [Dir('/usr/include/smjs')])
             elif os.path.exists('/usr/include/js'):
                 env.Append(LIBS = ['js'])
-                env.Append(CPPPATH = [Dir('/usr/include/js')])
+#This is bad.
+#                env.Append(CPPPATH = [Dir('/usr/include/js')])
             elif os.path.exists('/usr/include/mozjs'):
                 env.Append(LIBS = ['mozjs'])
                 env.Append(CPPPATH = [Dir('/usr/include/mozjs')])
